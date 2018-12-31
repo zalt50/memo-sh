@@ -48,9 +48,8 @@ function _memo_usage() {
 function _memo_create() {
 	local __title="$1"
 	local __slug="${__title//\ /-}"
-	local __slug="${__slug,,}"
 	local __memo; __memo="$(date +"${__memofmt}")"
-	local __memo="${__memo//\{SLUG\}/$__slug}"
+	local __memo="${__memo//\{SLUG\\\}/$__slug}"
 	local __path; __path="$(dirname "$__memo")"
 
 	[ -d "$__path" ] || mkdir -p "$__path"
