@@ -84,7 +84,7 @@ function _memo_open_browser() {
 
 function _memo_select() {
 	pushd "${__memodir}" 1>/dev/null
-	if [ "${__memoselect}" = "peco" ]; then
+	if [ "${__memoselect}" = "peco" -o "${__memoselect}" = "peco-tmux" ]; then
 		echo "$(find . -not -path '*/\.*' -type f \
 			| sed 's/^\.\///g' | "${MEMO_SELECT}")"
 	else
